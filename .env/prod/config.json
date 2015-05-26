@@ -1,0 +1,27 @@
+{
+  "apps" : [
+    {
+      "name"   : "prod-api",
+      "script" : "api.js",
+      "cwd"    : "api",
+      "exec_mode"            : "cluster",
+      "instances"            : -1,
+      "env": {
+        "DB_URL"             : "",
+        "API_PORT"           : "8081",
+        "API_SECRET"         : "",
+        "RECAPTCHA_SECRET"   : "",
+        "NODE_ENV"           : "production"
+      }
+    },
+    {
+      "name"         : "prod-worker",
+      "script"       : "worker.js",
+      "cwd"          : "api",
+      "env": {
+        "DB_URL"     : "",
+        "NODE_ENV"   : "production"
+      }
+    }
+  ]
+}

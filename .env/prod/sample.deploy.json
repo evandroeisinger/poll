@@ -1,0 +1,14 @@
+{
+  "deploy" : {
+    "production" : {
+      "key"  : ".env/prod/key.pem",
+      "user" : "ubuntu",
+      "host" : "0.0.0.0",
+      "ref"  : "origin/master",
+      "repo" : "https://username:passs@github.com/repo.git",
+      "path" : "/project",
+      "pre-deploy" : "sudo make stop-prod",
+      "post-deploy" : "sudo make run-prod"
+    }
+  }
+}

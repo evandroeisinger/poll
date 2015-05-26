@@ -1,0 +1,27 @@
+{
+  "private": true,
+  "version": "0.0.0",
+  "devDependencies": {
+    "bourbon": "^4.2.3",
+    "imagemin": "^3.2.0",
+    "node-sass": "^3.1.1",
+    "vigilia": "^0.1.0",
+    "webpack": "^1.9.7"
+  },
+  "scripts": {
+    "build": "npm run clean; npm run scripts; npm run images; npm run app_styles; npm run dash_styles;",
+    "scripts": "set NODE_ENV=production && node_modules/webpack/bin/webpack.js -p --config webpack.js --colors --progress",
+    "images": "node_modules/imagemin/cli.js -o 7 images/* build/images",
+    "clean": "rm -f build/*",
+    "app_watch": "node_modules/vigilia/bin/vigilia 'scripts/**/*.js':'npm run scripts' 'styles/**/*.scss':'npm run app_styles'",
+    "app_styles": "node_modules/node-sass/bin/node-sass --include-path node_modules/bourbon/app/assets/stylesheets --output build --output-style compressed styles/poll.scss build/poll.min.css",
+    "dash_watch": "node_modules/vigilia/bin/vigilia 'scripts/**/*.js':'npm run scripts' 'styles/**/*.scss':'npm run dash_styles'",
+    "dash_styles": "node_modules/node-sass/bin/node-sass --include-path node_modules/bourbon/app/assets/stylesheets --output build --output-style compressed styles/dashboard.scss build/dashboard.min.css"
+  },
+  "dependencies": {
+    "jsx-loader": "^0.13.2",
+    "moment": "^2.10.3",
+    "react": "^0.13.3",
+    "react-chartjs": "^0.6.0"
+  }
+}

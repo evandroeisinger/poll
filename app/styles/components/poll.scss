@@ -1,0 +1,237 @@
+.poll {
+  bottom: 0;
+  box-sizing: border-box;
+  left: 0;
+  min-height: rem(500px);
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  @include display(flex);
+  @include align-items(center);
+}
+
+.poll__wrapper {
+  margin: 0 auto;
+  min-width: rem(850px);
+  text-align: center;
+}
+
+.poll__title {
+  color: #777;
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: rem(32px);
+  font-weight: 400;
+  line-height: rem(32px);
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.poll__candidates {
+  display: block;
+  margin: 0;
+  min-height: rem(330px);
+  text-align: center;
+}
+
+.poll__candidates--results {
+  .poll__candidate {
+    opacity: .5;
+    cursor: default;
+  }
+
+  .poll__candidate-picture:hover {
+    background-color: #5E6673;    
+    border-color: #E5E5E5;
+  }
+
+  .poll__candidate-result {
+    opacity: 1;
+  }
+
+  .poll__candidate--selected {
+    opacity: 1;
+  }
+}
+
+.poll__candidates--loading::before {
+  border-radius: 50%;
+  border: rem(5px) solid transparent;
+  border-left: rem(5px) solid #00A4FF;
+  box-sizing: border-box;
+  content: '';
+  height: rem(100px);
+  left: 50%;
+  margin-left: rem(-50px);
+  margin-top: rem(-50px);
+  position: absolute;
+  top: 50%;
+  width: rem(100px);
+  z-index: 999;
+
+  @include transform(translateZ(0));
+  @include animation(fadeIn 2s, loader 1s infinite linear);
+}
+
+.poll__candidate {
+  cursor: pointer;
+  display: inline-block;
+  height: auto;
+  margin: rem(45px) rem(45px);
+  position: relative;
+  width: rem(180px);
+  position: relative;
+  
+  @include transition(opacity .5s);
+  @include animation(fadeIn .5s);
+}
+
+.poll__candidate-picture {
+  background-color: #5E6673;
+  border-radius: 180px;
+  border: rem(10px) solid #E5E5E5;
+  box-sizing: border-box;
+  height: rem(180px);
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  width: rem(180px);
+
+  @include transition(background-color .5s ease-in, border-color .5s linear);
+
+  &:hover {
+    background-color: #252A32;    
+    border-color: #00A4FF;
+  }
+
+  img {
+    bottom: 0;
+    height: auto;
+    left: -25%;
+    position: absolute;
+    width: 150%;
+    z-index: 0;
+  }
+}
+
+.poll__candidate--selected .poll__candidate-picture {
+  background-color: #252A32;    
+  border-color: #00A4FF;
+
+  img {
+    @include filter(grayscale(100%));
+  }
+}
+
+.poll__candidate-name {
+  color: #777;
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: rem(18px);
+  font-weight: 400;
+  line-height: rem(18px);
+  margin: rem(20px) 0 0 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.poll__candidate-result {
+  color: #999;
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: rem(16px);
+  font-weight: 300;
+  line-height: rem(16px);
+  margin: rem(6px) 0 0 0;
+  opacity: 0;
+  text-align: center;
+  text-transform: uppercase;
+
+  @include transition(opacity .5s);
+}
+
+.poll__vote-button {
+  background-color: #00A4FF;
+  border-radius: rem(3px);
+  border: 0;
+  color: #FFF;
+  cursor: pointer;
+  font-family: 'Oswald', sans-serif;
+  font-size: rem(18px);
+  font-weight: 400;
+  line-height: rem(44px);
+  margin: 0;
+  outline: none;
+  padding: 0 rem(20px);
+  text-align: center;
+  text-transform: uppercase;
+
+  @include transition(background-color .5s ease-in);
+
+  &:hover {
+    background-color: #252A32;
+  }
+
+  &:disabled {
+    background-color: #E5E5E5;
+    cursor: no-drop;
+  }
+}
+
+.poll__vote-button--processing {
+  background-color: #252A32;
+  cursor: progress;
+}
+
+.poll__message {
+  color: #00A4FF;
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: rem(24px);
+  font-weight: 400;
+  line-height: rem(24px);
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+
+  @include animation(fadeIn .5s);
+}
+
+.poll__overlay {
+  background-color: rgba(255, 255, 255, 0.85);
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  
+  @include animation(fadeIn .5s);
+
+  &::before {
+    border-radius: 50%;
+    border: rem(5px) solid transparent;
+    border-left: rem(5px) solid #00A4FF;
+    content: '';
+    height: 38px;
+    left: 50%;
+    margin-left: -19px;
+    margin-top: -19px;
+    position: absolute;
+    top: 50%;
+    width: 38px;
+    
+    @include transform(translateZ(0));
+    @include animation(loader 1s infinite linear);
+  }
+}
+
+.poll__captcha {
+  left: 50%;
+  margin-left: -152px;
+  margin-top: -39px;
+  position: absolute;
+  top: 50%;
+}

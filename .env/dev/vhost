@@ -1,0 +1,29 @@
+server {
+    listen 8080;
+    server_name 127.0.0.1;
+    root /project/app;
+    index poll.html;
+    sendfile off;
+
+    gzip on;
+    gzip_proxied any;
+    gzip_types text/plain text/html text/css application/x-javascript text/javascript application/json;
+    gzip_vary on;
+    gzip_disable "MSIE [1-6]\.(?!.*SV1)";
+
+    location /api {
+        proxy_pass http://127.0.0.1:8081;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection 'upgrade';
+        proxy_set_header Host $host;
+        proxy_cache_bypass $http_upgrade;
+    }
+
+    location /dashboard {
+        alias /project/app;
+        index dashboard.html;
+        auth_basic "Restricted";
+        auth_basic_user_file /project/.env/dev/.htpasswd;
+    }
+}

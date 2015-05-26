@@ -1,0 +1,14 @@
+{
+  "name": "api",
+  "main": "api.js",
+  "dependencies": {
+    "async": "^1.0.0",
+    "hiredis": "^0.3.0",
+    "kue": "^0.9.3",
+    "moment": "^2.10.3",
+    "mongoose": "^4.0.2",
+    "redis": "^0.12.1",
+    "request": "^2.55.0",
+    "restify": "^3.0.2"
+  }
+}

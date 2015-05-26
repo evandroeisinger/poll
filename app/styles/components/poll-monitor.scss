@@ -1,0 +1,156 @@
+.poll-monitor {
+  display: block;
+  margin: 0 auto;
+  padding: 0 0 rem(50px) 0;
+  width: 100%;
+}
+
+.poll-monitor__graphic {
+  background-color: rgba(40,45,55,.5);
+  border-bottom: 1px solid rgb(37, 42, 50);
+  box-sizing: border-box;
+  display: block;
+  height: rem(380px);
+  padding: rem(50px) 0;
+  position: relative;
+  width: 100%;
+}
+
+.poll-monitor__graphic--loading::before {
+  border-radius: 50%;
+  border: rem(5px) solid transparent;
+  border-left: rem(5px) solid #FFF;
+  box-sizing: border-box;
+  content: '';
+  height: rem(100px);
+  left: 50%;
+  margin-left: rem(-50px);
+  margin-top: rem(-50px);
+  position: absolute;
+  top: 50%;
+  width: rem(100px);
+  z-index: 999;
+
+  @include transform(translateZ(0));
+  @include animation(fadeIn 2s, loader 1s infinite linear);
+}
+
+.poll-monitor__chart {
+  box-sizing: border-box;
+  display: block;
+  padding: 0 rem(50px);
+  height: rem(280px);
+  width: 100%;
+}
+
+.poll-monitor__votes {
+  color: #FFF;
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: rem(28px);
+  font-weight: 400;
+  line-height: rem(28px);
+  margin: rem(50px) 0;
+  text-align: center;
+  text-transform: uppercase;
+
+  & .poll-monitor__votes-label {
+    color: #777;
+    display: block;
+    font-size: rem(18px);
+    font-weight: 300;
+    line-height: rem(18px);
+    margin-bottom: rem(10px);
+  }
+}
+
+.poll-monitor__actions {
+  display: block;
+  margin-top: rem(50px);
+  text-align: center;
+}
+
+.poll-monitor__end-button {
+  background-color: #5E6673;
+  border-radius: rem(3px);
+  border: 0;
+  color: #FFF;
+  cursor: pointer;
+  font-family: 'Oswald', sans-serif;
+  font-size: rem(18px);
+  font-weight: 400;
+  line-height: rem(44px);
+  margin: 0;
+  outline: none;
+  padding: 0 rem(20px);
+  text-align: center;
+  text-transform: uppercase;
+
+  @include transition(background-color .25s ease-in, color .25s ease-in);
+
+  &:hover {
+    background-color: #252A32;
+  }
+
+  &:disabled {
+    background-color: #5E6673;
+    color: #969BA4;
+    cursor: progress;
+  }
+}
+
+.poll-monitor__candidates {
+  display: block;
+  margin: 0;
+  text-align: center;
+}
+
+.poll-monitor__candidate {
+  width: rem(180px);
+  height: rem(180px);
+  display: inline-block;
+  margin: 0 rem(45px);
+  position: relative;
+}
+
+.poll-monitor__candidate-info {
+  display: block;
+  margin-top: rem(-15px);
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  width: 100%;
+}
+
+.poll-monitor__candidate-name {  
+  color: #FFF;
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: rem(18px);
+  font-weight: 400;
+  line-height: rem(18px);
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.poll-monitor__candidate-percent {  
+  color: #999;
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: rem(16px);
+  font-weight: 300;
+  line-height: rem(16px);
+  margin: rem(6px) 0 0 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.poll-monitor__candidate-chart {
+  width: rem(180px);
+  height: rem(180px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  
+  @include animation(fadeIn 3s);
+}

@@ -1,0 +1,146 @@
+.poll-form {
+  display: block;
+  margin: 0 auto;
+  padding: rem(50px);
+}
+
+.poll-form__title {
+  color: #FFF;
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: rem(24px);
+  font-weight: 400;
+  line-height: rem(24px);
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.poll-form__candidates {
+  display: block;
+  margin: 0;
+  min-height: rem(90px);
+  padding: rem(40px) 0;
+  text-align: center;
+  position: relative;
+}
+
+.poll-form__candidates--loading::before {
+  border-radius: 50%;
+  border: rem(5px) solid transparent;
+  border-left: rem(5px) solid #FFF;
+  box-sizing: border-box;
+  content: '';
+  height: rem(50px);
+  left: 50%;
+  margin-left: rem(-25px);
+  margin-top: rem(-25px);
+  position: absolute;
+  top: 50%;
+  width: rem(50px);
+  z-index: 999;
+  
+  @include transform(translateZ(0));
+  @include animation(loader 1s infinite linear);
+}
+
+.poll-form__candidate {
+  cursor: pointer;
+  display: inline-block;
+  height: rem(110px);
+  margin: rem(10px);
+  position: relative;
+  width: rem(90px);
+}
+
+.poll-form__candidate-picture {
+  background-color: #5E6673;
+  border-radius: 90px;
+  border: rem(2px) solid transparent;
+  box-sizing: border-box;
+  height: rem(90px);
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  width: rem(90px);
+  
+  @include transition(background-color .25s ease-in, border-color .25s linear);
+
+  &:hover {
+    background-color: #252A32;    
+  }
+
+  img {
+    bottom: 0;
+    height: auto;
+    left: -25%;
+    position: absolute;
+    width: 150%;
+  }
+}
+
+.poll-form__candidate--selected .poll-form__candidate-picture {
+  background-color: #252A32;    
+  border-color: #FFF;
+}
+
+.poll-form__candidate-name {
+  bottom: 0;
+  color: #FFF;
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: rem(12px);
+  font-weight: 300;
+  line-height: rem(12px);
+  position: absolute;
+  text-align: center;
+  text-transform: uppercase;
+  visibility: hidden;
+  width: 100%;
+}
+
+.poll-form__candidate--selected .poll-form__candidate-name, .poll-form__candidate:hover .poll-form__candidate-name {
+  visibility: visible;
+}
+
+.poll-form__actions {
+  display: block;
+  text-align: center;
+}
+
+.poll-form__start-button {
+  background-color: #5E6673;
+  border-radius: rem(3px);
+  border: 0;
+  color: #FFF;
+  cursor: pointer;
+  font-family: 'Oswald', sans-serif;
+  font-size: rem(18px);
+  font-weight: 400;
+  line-height: rem(44px);
+  margin: 0;
+  outline: none;
+  padding: 0 rem(20px);
+  text-align: center;
+  text-transform: uppercase;
+
+  @include transition(background-color .25s ease-in, color .25s ease-in);
+
+  &:hover {
+    background-color: #252A32;
+  }
+
+  &:disabled {
+    background-color: #5E6673;
+    color: #969BA4;
+    cursor: no-drop;
+  }
+}
+
+.poll-form__start-button--starting,
+.poll-form__start-button--starting:disabled {
+  background-color: #252A32;
+  color: #969BA4;
+  cursor: progress;
+}

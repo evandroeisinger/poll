@@ -1,0 +1,136 @@
+.poll-list {
+  display: block;
+  margin: 0;
+  padding: 0;
+  background-color: #FFF;
+}
+
+.poll-list__poll {
+  border-bottom: 1px solid #E5E5E5;
+  display: block;
+  list-style-type: none;
+  margin: 0;
+  padding: rem(50px);
+
+  &:last-child {
+    border: 0;
+  }
+}
+
+.poll-list__empty {
+  color: #777;
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: rem(24px);
+  font-weight: 400;
+  line-height: rem(24px);
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.poll-list__poll-title {
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: rem(24px);
+  font-weight: 400;
+  line-height: rem(24px);
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.poll-list__poll-label {
+  color: #00A4FF;
+  margin-right: rem(5px);
+}
+
+.poll-list__poll-date {
+  color: #777;
+}
+
+.poll-list__poll-votes {
+  color: #777;
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: rem(18px);
+  font-weight: 300;
+  line-height: rem(18px);
+  margin: rem(20px) 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.poll-list__poll-candidates {
+  display: block;
+  margin: 0;
+  min-height: rem(90px);
+  padding: 0;
+  text-align: center;
+}
+
+.poll-list__candidate {
+  display: inline-block;
+  height: rem(110px);
+  margin: rem(10px) rem(50px);
+  position: relative;
+  width: rem(90px);
+}
+
+.poll-list__candidate-picture {
+  background-color: #5E6673;
+  border-radius: 90px;
+  box-sizing: border-box;
+  height: rem(90px);
+  margin: 0;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  width: rem(90px);
+  
+  img {
+    bottom: 0;
+    height: auto;
+    left: -25%;
+    position: absolute;
+    width: 150%;
+  }
+}
+
+.poll-list__candidate-name {
+  color: #777;
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: rem(18px);
+  font-weight: 400;
+  line-height: rem(18px);
+  margin: rem(20px) 0 0 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.poll-list__candidate-result {
+  color: #999;
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: rem(14px);
+  font-weight: 300;
+  line-height: rem(14px);
+  margin: rem(6px) 0 0 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.poll-list__candidate--eliminated .poll-list__candidate-picture {
+  background-color: #252A32;
+
+  img {
+    @include filter(grayscale(100%));
+  }
+}
+
+.poll-list__candidate--eliminated .poll-list__candidate-name,
+.poll-list__candidate--eliminated .poll-list__candidate-result {
+  color: #000;
+  font-weight: 400;
+}
