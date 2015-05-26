@@ -1,4 +1,4 @@
-project--poll
+poll
 =============
 
 The main goal is to provide simple and quick way to create a poll application, also providing a dashboard to monitor the poll status.
