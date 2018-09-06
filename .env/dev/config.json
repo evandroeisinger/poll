@@ -5,20 +5,11 @@
       "script"       : "api.js",
       "cwd"          : "api",
       "exec_mode"    : "cluster",
-      "instances"    : -1,  
+      "instances"    : -1,
       "env": {
         "DB_URL"             : "127.0.0.1/pollsdb",
         "API_PORT"           : "8081",
         "RECAPTCHA_SECRET"   : "6LdJKQcTAAAAAJJa_5Gb_O6-xMKOUNJS5tGhefGR"
-      }
-    },
-    {
-      "name"         : "dev-worker",
-      "script"       : "worker.js",
-      "cwd"          : "api",
-      "env": {
-        "DB_URL"     : "127.0.0.1/pollsdb",
-        "API_PORT"   : "8081"
       }
     }
   ]

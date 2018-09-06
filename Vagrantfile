@@ -1,4 +1,5 @@
 Vagrant.configure('2') do |setup|
+  setup.vm.provider "virtualbox"
   # setup box
   setup.vm.box = "ubuntu/trusty64"
 
